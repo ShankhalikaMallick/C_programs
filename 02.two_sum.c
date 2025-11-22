@@ -24,3 +24,56 @@ Only one valid answer exists.
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
  */
 
+#include <stdio.h>
+
+int main()
+{
+    int len, target;
+    int t2;
+    printf("enter target ");
+    scanf("%d",&target);
+    printf("enter length ");
+    scanf("%d", &len);
+    int nums[len];  
+    printf("enter elements\n"); 
+    for(int i=0;i<len;i++)
+    scanf("%d",&nums[i]);  
+    for(int i=0;i<len; i++)
+    {
+        t2=target-nums[i];
+        for(int j=i+1; j<len;j++)
+        {
+            if(t2==nums[j])
+            printf("[%d,%d]",i,j);
+        }
+    }
+    return 0;
+}
+
+/*
+PS F:\c prog> gcc two_sum.c
+PS F:\c prog> .\a.exe
+enter target 9
+enter length 4
+enter elements
+2
+7
+11
+15
+[0,1]
+PS F:\c prog> .\a.exe
+enter target 6
+enter length 3
+enter elements
+3
+2
+4
+[1,2]
+PS F:\c prog> .\a.exe
+enter target 6
+enter length 2
+enter elements
+3
+3
+[0,1]
+*/
